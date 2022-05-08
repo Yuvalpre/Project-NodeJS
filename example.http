@@ -1,0 +1,62 @@
+@local=http://localhost:3000
+
+
+### Create User
+POST {{local}}/api/users
+Content-Type: application/json
+
+{
+    "name": "Insert Name",
+    "password": "Insert Password",
+    "email": "Insert Email",
+    "biz": true
+}
+
+### Sign In
+POST {{local}}/api/auth
+Content-Type: application/json
+
+{
+    "email": "Insert Entered Email",
+    "password": "Insert Entered Password"
+}
+
+### My Information
+GET {{local}}/api/users/me
+x-auth-token: Insert Authorization Token
+
+### Create a Card
+POST {{local}}/api/cards
+x-auth-token: Insert Authorization Token
+Content-Type: application/json
+
+{
+    "bizName": "Graphic Deisgn Prod.",
+    "bizDescription": "Designing The World",
+    "bizAddress": "Groove Street 21",
+    "bizPhone": "0584214598",
+    "bizImage": "https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg"
+
+}
+
+
+### Get Card Information by ID
+GET {{local}}/api/cards/Insert ID Given by "Create a Card"
+x-auth-token: Insert Authorization Token
+
+### Update the Card
+PUT {{local}}/api/cards/Insert ID Given by "Create a Card"
+x-auth-token: Insert Authorization Token
+Content-Type: application/json
+
+{
+    "bizName": "Graphic Design Productions",
+    "bizDescription": "Designing World Wide",
+    "bizAddress": "Groove Street 21",
+    "bizPhone": "0584214598",
+    "bizImage": "https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg"
+}
+
+### Delete the Card
+DELETE {{local}}/api/cards/Insert ID Given by "Create a Card"
+x-auth-token: Insert Authorization Token
